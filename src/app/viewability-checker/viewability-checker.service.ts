@@ -9,10 +9,13 @@ export class ViewabilityCheckerService {
   constructor() { }
 
   initialiseObserver(options: IntersectionObserverInit): void {
-    this.observer = new IntersectionObserver(() => console.log('Element in view'), options);
+    this.observer = new IntersectionObserver((entries) => console.log(entries), options);
   }
 
-  observe(element: HTMLElement): void {
+  observe(element: HTMLElement, options: IntersectionObserverInit): void {
+    if (!this.observer) {
+      this.initialiseObserver(options);
+    }
     this.observer.observe(element);
   }
 
