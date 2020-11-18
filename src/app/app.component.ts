@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     const observed = document.getElementById('observed');
-    this.viewabilityChecker.observe(observed, {rootMargin: '0px', threshold: 1});
+    this.viewabilityChecker.observe(observed, {rootMargin: '0px', threshold: [0, 0.25, 0.5, 0.75, 1]});
   }
 
 }
